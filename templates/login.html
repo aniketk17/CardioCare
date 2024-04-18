@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'images/heart_bg.jpg' %}");
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            /* background definition types */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            background-image: url("{% static 'images/heart_bg.jpg' %}");
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            width: 800px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            color: #333;
+            text-align: left;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border : 2px solid black;
+            border-radius: 8px;
+        }
+
+        .login-form button {
+            background-color: red;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .signup-link {
+            margin-top: 15px;
+        }
+
+        .signup-link a {
+            color: #3498db;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+    <div class="container">
+      <a class="navbar-brand" href="#">Cardio Care</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'homePage' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'chat_bot_page' %}">CardioCompanion</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Others
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'chat_bot_page' %}">ChatBot</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="d-flex">
+          {% if request.user.is_authenticated %}
+          <a href="" class="">{{request.user.username}}</a>
+          <a type="button" class="btn btn-outline-primary me-2" href="{% url 'logout_page' %}">Logout</a>
+          {% else %}
+          <a type="button" class="btn btn-outline-primary me-2" href="{% url 'login_page' %}">Login</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+      
+<div class="login-container">
+    <h2>Login</h2>
+    <form class="login-form" action="" method="post">
+      {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-primary" role="alert">
+          {{message}}
+        </div>
+      {% endfor %}
+      {% endif %}
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <div class="signup-link">
+        <p>Don't have an account? <a href="{% url 'register_page' %}">Register</a></p>
+    </div>
+</div>
+</body>
+</html>

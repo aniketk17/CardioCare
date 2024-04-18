@@ -1,0 +1,71 @@
+
+.register-container {
+  background-image: url(heart.jpg);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  max-width: 90%;
+  background-color: white;
+  margin: auto;
+  border-radius: 30px;
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;
+  top: 120px;
+  left: 60px;
+  bottom: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register button {
+  background-color: red;
+  color: white;
+  width: 20%;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* input{
+width: 80%;
+}
+input, textarea{
+margin: 20px;
+padding: 10px;
+border: 10px; */
+/* } */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="age"],
+input[type="number"] {
+  width: 80%;
+  margin: 20px;
+  padding: 10px;
+  border: 2px solid black;
+  /* Add black border to input fields */
+  border-radius: 8px;
+  /* Add border-radius for rounded corners */
+}
+
+button,
+textarea {
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.register text {
+  border-color: black;
+}
+
+.button1 {
+  color: white;
+}
+
+.head {
+  font-size: 25px;
+  position: relative;
+  top: 15px;
+  text-align: left;
+  left: 100px;
+}
