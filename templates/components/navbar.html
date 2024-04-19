@@ -27,7 +27,7 @@
       </ul>
       <div class="d-flex">
         {% if request.user.is_authenticated %}
-        <a href="" class="">{{request.user.username}}</a>
+        <a href="" class="mx-2 my-2 fw-bolder">{{request.user.username}}</a>
         <a type="button" class="btn btn-outline-primary me-2" href="{% url 'logout_page' %}">Logout</a>
         {% else %}
         <a type="button" class="btn btn-outline-primary me-2" href="{% url 'login_page' %}">Login</a>

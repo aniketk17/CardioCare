@@ -16,17 +16,17 @@ def register_page(request):
 
     if password != confirmpassword:
       messages.info(request,'invalid password')
-      return redirect('/register/')
+      return redirect('register_page')
 
     user = User.objects.filter(username = username)
     if(user.exists()):
       messages.info(request,'Username is already taken')
-      return redirect('/register/')
+      return redirect('register_page')
 
     user = User.objects.filter(email = email)
     if(user.exists()):
       messages.info(request,'email should be unique')
-      return redirect('/register/')
+      return redirect('register_page')
 
     user = User(
       first_name = first_name,
@@ -39,7 +39,7 @@ def register_page(request):
     user.set_password(password)
     user.save()
     messages.info(request,'account created successfully')
-    return redirect('/login/')
+    return redirect('login_page')
 
   return render(request,'register.html')
 
@@ -54,13 +54,13 @@ def login_page(request):
 
     if not user.exists():
       messages.info(request,'invalid username')
-      return redirect('/login/')
+      return redirect('login_page')
 
     user = authenticate(username = username , password = password)
 
     if user is None:
       messages.info(request,'invalid password')
-      return redirect('/login/')
+      return redirect('login_page')
 
     else:
       login(request,user)
