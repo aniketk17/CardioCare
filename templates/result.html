@@ -1,15 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  {% if messages %}
-     {% for message in messages %}
-     <h3 class="text-center">{{message}}</h3>
-     {% endfor %}
-    {% endif %}
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Result{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Heart Disease Prediction Result</h5>
+        </div>
+        <div class="card-body">
+          {% if flag == 1 %}
+            <p class="lead text-danger font-weight-bold" id="prediction-result">
+              Based on the provided information, it appears that you may have indicators of heart disease. We recommend consulting with a healthcare professional for a thorough evaluation and personalized guidance. Remember, early detection and appropriate management are key to maintaining heart health."
+            </p>
+            <div id="hospitals-section">
+              <h6 class="mt-3">Recommended Hospitals for Heart Disease:</h6>
+              <ul id="hospital-list" class="list-group">
+                <li class="list-group-item"><a href="https://www.fortishealthcare.com/india/clinical-speciality/cardiac-sciences-228/26">Fortis Escorts Heart Institute, New Delhi</a></li>
+                <li class="list-group-item"><a href="https://www.fortishealthcare.com/india/clinical-speciality/cardiac-sciences-228/26">Asian Hearts Institute, Mumbai</a></li>
+                <li class="list-group-item"><a href="https://chennai.apollohospitals.com/clinical-excellence/apollo-heart-institute">Apollo Hospitals, Chennai</a></li>
+                <li class="list-group-item"><a href="https://delhi.apollohospitals.com/heart">Indraprastha Apollo Hospital, Delhi</a></li>
+                <li class="list-group-item"><a href="https://www.nanavatihospital.org/heart-institute"> Nanavati Hospital, Mumbai</a></li>
+              </ul>
+            </div>
+          {% else %}
+            <p class="lead text-success font-weight-bold" id="prediction-result">
+              Great news! Based on the information provided, it seems that you do not show signs of heart disease. However, it's important to maintain a healthy lifestyle and continue regular check-ups to keep your heart in optimal condition. Keep up the good work!
+            </p>
+          {% endif %}
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'homePage' %}" class="btn btn-primary">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

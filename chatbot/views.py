@@ -17,7 +17,7 @@ bot = ChatBot('chatbot', read_only = True,
 list_to_train = [
     "hii",
     "hello",
-    "What are types of heart disease?"
+    "What are types of heart disease?",
     "1. Arrhythmia\n2. Coronary artery disease\n3. Heart failure\n4. Heart attack\n5. Congenital heart disease\n6. Heart valve disease\n7. Angina\n8. Aortic disease\n9. Atherosclerosis\n10. Cardiomyopathy\n11. Peripheral arterial disease\n12. Stroke\n13. Atrial Fibrillation\n14. Pulmonary hypertension are types of heart disease.",
     "What is Arrhythmia?",
     "Arrhythmias are irregularities in the heartbeat, including when it is too fast or too slow.",

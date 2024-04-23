@@ -30,12 +30,15 @@ def result_view(request):
     
     prediction = model.predict(input_data)
     print(prediction)
+    flag = 0
     if not prediction:
-        messages.success(request, "No presence of heart disease.")
+      messages.success(request, "No presence of heart disease.")
     else:
-        messages.error(request, "We're sorry to inform, but our prediction indicates you might be suffering from a heart disease.")
+      flag = 1
+      messages.error(request, "We're sorry to inform, but our prediction indicates you might be suffering from a heart disease.")
     
-    return render(request, 'result.html')
+    return render(request, 'result.html',{'flag':flag})
+  
 
 
 
