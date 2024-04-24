@@ -10,6 +10,9 @@ def home(request):
 def form_view(request):
   return render(request,'form.html')
 
+def about_view(request):
+  return render(request,'about.html')
+
 def result_view(request):
   if request.method == "POST":
     data = request.POST
