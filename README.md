@@ -1,23 +1,25 @@
-# Pbl-2
+# CardioCare
 
 ## Overview
-Pbl-2 is a project designed to [brief description of the project's purpose or goal, e.g., solve a specific problem or provide a unique feature]. The application aims to [explain what the application does and its significance].
+CardioCare is a project designed to predict heart disease using machine learning. It incorporates a predictive model that analyzes various health metrics and provides insights into the likelihood of heart disease. This project also includes a Jupyter Notebook for exploratory data analysis and model training.
 
 ## Features
-- **User Management**: Allows users to register, log in, and manage their profiles.
-- **Data Visualization**: Presents data in an easily digestible format.
-- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Heart Disease Prediction**: Uses machine learning algorithms to predict the risk of heart disease.
+- **Jupyter Notebook**: Contains code for data preprocessing, model training, and evaluation.
+- **User Management**: Allows users to register and log in to access personalized features.
 
 ## Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: [Django/Node.js/etc.]
-- **Database**: [MySQL/MongoDB/etc.]
+- **Backend**: [Django]
+- **Database**: [MySQL]
+- **Machine Learning**: Python, scikit-learn, pandas, NumPy
 
 ## Installation & Setup
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/aniketk17/Pbl-2.git
+
 
 2. Create Virtual Environment:
    ```bash
@@ -35,3 +37,8 @@ Pbl-2 is a project designed to [brief description of the project's purpose or go
 
 5. Create a superuser to access the admin dashboard:
    ```bash
+   python manage.py createsuperuser
+
+6. Start the development server:
+   ```bash
+   python manage.py runserver
